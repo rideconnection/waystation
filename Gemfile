@@ -17,6 +17,8 @@ gem 'will_paginate', '~> 3.0.beta'
 
 gem "nifty-generators", :group => :development
 
+gem 'paperclip'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

@@ -39,6 +39,7 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    cocaine (0.1.0)
     columnize (0.3.3)
     devise (1.4.0)
       bcrypt-ruby (~> 2.1.2)
@@ -66,6 +67,10 @@ GEM
       net-ssh (>= 1.99.1)
     nifty-generators (0.4.6)
     orm_adapter (0.0.5)
+    paperclip (2.3.12)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
     pg (0.11.0)
     polyglot (0.3.1)
     rack (1.2.3)
@@ -119,6 +124,7 @@ DEPENDENCIES
   devise
   mocha
   nifty-generators
+  paperclip
   pg
   rails (= 3.0.9)
   ruby-debug19
