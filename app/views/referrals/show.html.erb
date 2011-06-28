@@ -1,0 +1,32 @@
+<% title "Referral" %>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @referral.first_name %>
+</p>
+<p>
+  <strong>Last Name:</strong>
+  <%= @referral.last_name %>
+</p>
+<p>
+  <strong>Customer Phone:</strong>
+  <%= @referral.customer_phone %>
+</p>
+<p>
+  <strong>Case Manager Name:</strong>
+  <%= @referral.case_manager_name %>
+</p>
+<p>
+  <strong>Case Manager Email:</strong>
+  <%= @referral.case_manager_email %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%= @referral.note %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_referral_path(@referral) %> |
+  <%= link_to "Destroy", @referral, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", referrals_path %>
+</p>

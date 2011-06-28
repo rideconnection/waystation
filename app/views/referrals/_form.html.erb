@@ -1,0 +1,28 @@
+<%= form_for @referral do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :customer_phone %><br />
+    <%= f.text_field :customer_phone %>
+  </p>
+  <p>
+    <%= f.label :case_manager_name %><br />
+    <%= f.text_field :case_manager_name %>
+  </p>
+  <p>
+    <%= f.label :case_manager_email %><br />
+    <%= f.text_field :case_manager_email %>
+  </p>
+  <p>
+    <%= f.label :note %><br />
+    <%= f.text_area :note %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

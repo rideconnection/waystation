@@ -1,0 +1,27 @@
+<% title "Referrals" %>
+
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Customer Phone</th>
+    <th>Case Manager Name</th>
+    <th>Case Manager Email</th>
+    <th>Note</th>
+  </tr>
+  <% for referral in @referrals %>
+    <tr>
+      <td><%= referral.first_name %></td>
+      <td><%= referral.last_name %></td>
+      <td><%= referral.customer_phone %></td>
+      <td><%= referral.case_manager_name %></td>
+      <td><%= referral.case_manager_email %></td>
+      <td><%= referral.note %></td>
+      <td><%= link_to "Show", referral %></td>
+      <td><%= link_to "Edit", edit_referral_path(referral) %></td>
+      <td><%= link_to "Destroy", referral, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Referral", new_referral_path %></p>

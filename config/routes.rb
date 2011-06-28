@@ -1,4 +1,6 @@
 Waystation::Application.routes.draw do
+  resources :referrals
+
   devise_for :users
 
   # The priority is based upon order of creation:

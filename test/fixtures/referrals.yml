@@ -1,0 +1,15 @@
+one:
+  first_name: MyString
+  last_name: MyString
+  customer_phone: MyString
+  case_manager_name: MyString
+  case_manager_email: MyString
+  note: MyText
+
+two:
+  first_name: MyString
+  last_name: MyString
+  customer_phone: MyString
+  case_manager_name: MyString
+  case_manager_email: MyString
+  note: MyText

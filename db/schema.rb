@@ -10,7 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110628192229) do
+ActiveRecord::Schema.define(:version => 20110628215346) do
+
+  create_table "referrals", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "customer_phone"
+    t.string   "case_manager_name"
+    t.string   "case_manager_email"
+    t.string   "username"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"
