@@ -15,6 +15,8 @@ gem 'devise'
 
 gem 'will_paginate', '~> 3.0.beta'
 
+gem "nifty-generators", :group => :development
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
