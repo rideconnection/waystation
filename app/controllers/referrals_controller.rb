@@ -38,4 +38,9 @@ class ReferralsController < ApplicationController
     @referral.destroy
     redirect_to referrals_url, :notice => "Successfully destroyed referral."
   end
+
+  def download
+    @referral = Referral.find(params[:id])
+    send_file @referral.ucr_form.path, :type => @referral.ucr_form_content_type, :disposition => 'inline'
+  end
 end

@@ -1,5 +1,9 @@
 Waystation::Application.routes.draw do
-  resources :referrals
+  resources :referrals do
+    member do
+      get 'download'
+    end
+  end
 
   devise_for :users
 
