@@ -1,4 +1,4 @@
-<%= form_for @referral do |f| %>
+<%= form_for(@referral, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :first_name %><br />
@@ -23,6 +23,10 @@
   <p>
     <%= f.label :note %><br />
     <%= f.text_area :note, :rows => 10 %>
+  </p>
+  <p>
+    <%= f.label :ucr_form %><br />
+    <%= f.file_field :ucr_form %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

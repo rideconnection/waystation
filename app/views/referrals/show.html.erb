@@ -26,6 +26,9 @@
 </p>
 
 <p>
+  <%= link_to "UCR Form", @referral.ucr_form.url %>
+
+<p>
   <%= link_to "Edit", edit_referral_path(@referral) %> |
   <%= link_to "Destroy", @referral, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", referrals_path %>

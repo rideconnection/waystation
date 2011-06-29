@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110628215346) do
+ActiveRecord::Schema.define(:version => 20110628231014) do
 
   create_table "referrals", :force => true do |t|
     t.string   "first_name"
@@ -22,6 +22,10 @@ ActiveRecord::Schema.define(:version => 20110628215346) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ucr_form_file_name"
+    t.string   "ucr_form_content_type"
+    t.integer  "ucr_form_file_size"
+    t.datetime "ucr_form_updated_at"
   end
 
   create_table "users", :force => true do |t|
