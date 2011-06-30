@@ -5,8 +5,13 @@ Waystation::Application.routes.draw do
     end
   end
 
-  devise_for :users
-
+  devise_for :users, :controllers=>{:sessions=>"users"} do
+    get "new_user" => "users#new_user"
+    post "create_user" => "users#create_user"
+    get "show_change_password" => "users#show_change_password"
+    match "change_password"  => "users#change_password"
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

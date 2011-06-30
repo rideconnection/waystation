@@ -41,6 +41,6 @@ class ReferralsController < ApplicationController
 
   def download
     @referral = Referral.find(params[:id])
-    send_file @referral.ucr_form.path, :type => @referral.ucr_form_content_type, :disposition => 'inline'
+    send_file @referral.ucr_form.path, :type => @referral.ucr_form_content_type, :disposition => 'inline', :x_sendfile => true
   end
 end
