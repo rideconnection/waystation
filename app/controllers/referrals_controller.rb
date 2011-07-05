@@ -1,4 +1,6 @@
 class ReferralsController < ApplicationController
+  before_filter :login_required
+
   def index
     @referrals = Referral.all
   end
