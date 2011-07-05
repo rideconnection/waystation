@@ -4,7 +4,6 @@ gem 'rails', '3.0.9'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'cancan'
 gem 'pg'
-gem 'devise'
 gem 'will_paginate', '~> 3.0.beta'
 gem 'paperclip'
 

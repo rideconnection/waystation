@@ -5,15 +5,6 @@ Waystation::Application.routes.draw do
     end
   end
 
-  devise_for :users, :controllers=>{:sessions=>"users"} do
-    get   "users" => "users#index"
-    get   "show_user" => "users#show"
-    get   "new_user" => "users#new_user"
-    post  "create_user" => "users#create_user"
-    get   "edit_user" => "users#edit"
-    put   "update_user" => "users#update"
-  end
-  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
