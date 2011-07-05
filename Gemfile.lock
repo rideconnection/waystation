@@ -30,6 +30,7 @@ GEM
     activesupport (3.0.9)
     archive-tar-minitar (0.5.2)
     arel (2.0.10)
+    bcrypt-ruby (2.1.4)
     builder (2.1.2)
     cancan (1.6.5)
     capistrano (2.6.0)
@@ -111,6 +112,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby
   cancan
   capistrano
   mocha
