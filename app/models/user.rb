@@ -12,6 +12,11 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_confirmation_of :password
   validates_length_of :password, :minimum => 4, :allow_blank => true
+  validates_presence_of :user_type
+
+  def self.user_types
+    ['Outside User','Ride Connection User']
+  end
 
   # login can be either username or email address
   def self.authenticate(login, pass)

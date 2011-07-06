@@ -6,6 +6,7 @@ gem 'cancan'
 gem 'pg'
 gem 'will_paginate', '~> 3.0.beta'
 gem 'paperclip'
+gem 'simple_form'
 
 group :development do
   gem 'capistrano'
