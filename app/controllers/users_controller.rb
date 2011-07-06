@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :login_required
 
   def index
-    @users = User.all
+    @users = User.order(:username).all
   end
 
   def new
@@ -29,11 +29,5 @@ class UsersController < ApplicationController
     else
       render :action => 'edit'
     end
-  end
-
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    redirect_to users_url, :notice => "Successfully destroyed user."
   end
 end

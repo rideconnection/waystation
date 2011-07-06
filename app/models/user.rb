@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
     ['Outside User','Ride Connection User','Admin']
   end
   validates_inclusion_of    :user_type, :in => self.user_types
+  
+  scope :active, where(:active => true)
 
   # login can be either username or email address
   def self.authenticate(login, pass)

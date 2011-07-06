@@ -5,14 +5,15 @@
     <th>User Name</th>
     <th>Email</th>
     <th>User Type</th>
+    <th>Active?</th>
   </tr>
   <% for user in @users %>
     <tr>
       <td><%= user.username %></td>
       <td><%= user.email %></td>
       <td><%= user.user_type %></td>
+      <td><%= user.active ? 'Yes' : 'No' %></td>
       <td><%= link_to "Edit", edit_user_path(user) %></td>
-      <td><%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>

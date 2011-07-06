@@ -3,6 +3,7 @@
   <%= f.input :username, :size => 25, :input_html => {:size => 25} %>
   <%= f.input :email, :input_html => {:size => 25}  %>
   <%= f.input :user_type, :collection => User.user_types %>
+  <%= f.input :active  %>
   <%= f.input :password, :input_html => {:size => 25}  %>
   <%= f.input :password_confirmation, :input_html => {:size => 25}  %>
   <%= f.button :submit %>
