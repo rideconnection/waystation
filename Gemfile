@@ -7,6 +7,7 @@ gem 'pg'
 gem 'will_paginate', '~> 3.0.beta'
 gem 'paperclip'
 gem 'simple_form'
+gem 'userstamp'
 
 group :development do
   gem 'capistrano'

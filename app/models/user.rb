@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  model_stamper
+  
   # new columns need to be added here to be writable through mass assignment
   attr_accessible :username, :email, :password, :password_confirmation, :user_type
 
