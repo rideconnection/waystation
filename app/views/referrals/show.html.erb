@@ -24,6 +24,12 @@
   <strong>Note:</strong>
   <%= @referral.note %>
 </p>
+<% unless current_user.user_type == 'Outside User' %>
+  <p>
+    <strong>Active:</strong>
+    <%= @referral.active ? 'Yes' : 'No' %>
+  </p>
+<% end %>
 
 <p>
   <% if @referral.ucr_form.present? %>

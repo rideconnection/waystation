@@ -8,6 +8,9 @@
     <th>Case Manager Name</th>
     <th>Case Manager Email</th>
     <th>Note</th>
+    <% unless current_user.user_type == 'Outside User' %>
+      <th>Active</th>
+    <% end %>
   </tr>
   <% for referral in @referrals %>
     <tr>
@@ -17,6 +20,9 @@
       <td><%= referral.case_manager_name %></td>
       <td><%= referral.case_manager_email %></td>
       <td><%= referral.note %></td>
+      <% unless current_user.user_type == 'Outside User' %>
+        <td><%= referral.active ? 'Yes' : 'No' %></td>
+      <% end %>
       <td><%= link_to "Show", referral %></td>
       <td><%= link_to "Edit", edit_referral_path(referral) %></td>
       <td><%= link_to "Destroy", referral, :confirm => 'Are you sure?', :method => :delete %></td>

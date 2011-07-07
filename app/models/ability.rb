@@ -7,7 +7,7 @@ class Ability
     elsif user.user_type == 'Ride Connection User'
       can [:read, :download], Referral
     elsif user.user_type == 'Outside User'
-      can :manage, Referral, :created_by => user.id
+      can :manage, Referral, :created_by => user.id, :active => true
     end
     # Define abilities for the passed in user here. For example:
     #
