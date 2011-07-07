@@ -1,2 +1,21 @@
 <h1>Ride Connection Referrals</h1>
-<p>Welcome!</p>
+
+<ul>
+  <li>
+    <%= link_to 'List referrals', referrals_path %>
+  </li>
+  <li>
+    <%= link_to 'Add a new referral', new_referral_path %>
+  </li>
+</ul>
+
+<% if current_user.admin? %>
+  <ul>
+    <li>
+      <%= link_to 'List users', users_path %>
+    </li>
+    <li>
+      <%= link_to 'Add a new user', new_user_path %>
+    </li>
+  </ul>
+<% end %>
