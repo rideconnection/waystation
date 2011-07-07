@@ -5,7 +5,7 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.user_type == 'Ride Connection User'
-      can :read, Referral
+      can [:read, :download], Referral
     elsif user.user_type == 'Outside User'
       can :manage, Referral, :created_by => user.id
     end
