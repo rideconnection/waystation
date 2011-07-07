@@ -1,0 +1,10 @@
+<% title "Add First User" %>
+
+<%= simple_form_for @user, :url => create_initial_users_path(@user) do |f| %>
+  <%= f.error_messages %>
+  <%= f.input :username, :size => 25, :input_html => {:size => 25} %>
+  <%= f.input :email, :input_html => {:size => 25}  %>
+  <%= f.input :password, :input_html => {:size => 25}  %>
+  <%= f.input :password_confirmation, :input_html => {:size => 25}  %>
+  <%= f.button :submit %>
+<% end %>

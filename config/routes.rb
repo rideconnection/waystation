@@ -9,7 +9,12 @@ Waystation::Application.routes.draw do
 
   resources :sessions
 
-  resources :users
+  resources :users do
+    collection do
+      get 'new_initial'
+      post 'create_initial'
+    end
+  end
 
   resources :referrals do
     member do
