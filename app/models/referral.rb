@@ -7,4 +7,8 @@ class Referral < ActiveRecord::Base
   has_attached_file :ucr_form, 
       :path => ":rails_root/uploads/:class/:id/:basename.:extension",
       :url => "/referrals/:id/download"
+
+  def name
+    "#{last_name}, #{first_name}"
+  end
 end

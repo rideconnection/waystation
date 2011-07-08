@@ -2,25 +2,19 @@
 
 <table>
   <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Customer Phone</th>
-    <th>Case Manager Name</th>
-    <th>Case Manager Email</th>
+    <th>Customer</th>
+    <th>Case Manager</th>
     <th>Note</th>
-    <% unless current_user.user_type == 'Outside User' %>
+    <% if current_user.admin? %>
       <th>Active</th>
     <% end %>
   </tr>
   <% for referral in @referrals %>
     <tr>
-      <td><%= referral.first_name %></td>
-      <td><%= referral.last_name %></td>
-      <td><%= referral.customer_phone %></td>
+      <td><%= referral.name %></td>
       <td><%= referral.case_manager_name %></td>
-      <td><%= referral.case_manager_email %></td>
-      <td><%= referral.note %></td>
-      <% unless current_user.user_type == 'Outside User' %>
+      <td><%= truncate referral.note %></td>
+      <% if current_user.admin? %>
         <td><%= referral.active ? 'Yes' : 'No' %></td>
       <% end %>
       <td><%= link_to "Show", referral %></td>

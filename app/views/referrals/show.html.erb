@@ -18,13 +18,13 @@
 </p>
 <p>
   <strong>Case Manager Email:</strong>
-  <%= @referral.case_manager_email %>
+  <%= mail_to @referral.case_manager_email %>
 </p>
 <p>
   <strong>Note:</strong>
   <%= @referral.note %>
 </p>
-<% unless current_user.user_type == 'Outside User' %>
+<% if current_user.admin? %>
   <p>
     <strong>Active:</strong>
     <%= @referral.active ? 'Yes' : 'No' %>
