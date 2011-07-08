@@ -12,11 +12,12 @@
   <% for referral in @referrals %>
     <tr>
       <td><%= referral.name %></td>
-      <td><%= referral.case_manager_name %></td>
+      <td><%= mail_to referral.case_manager_email, referral.case_manager_name %></td>
       <td><%= truncate referral.note %></td>
       <% if current_user.admin? %>
         <td><%= referral.active ? 'Yes' : 'No' %></td>
       <% end %>
+      <td><%= link_to("UCR Form", referral.ucr_form.url) if referral.ucr_form.present? %></td>
       <td><%= link_to "Show", referral %></td>
       <td><%= link_to "Edit", edit_referral_path(referral) %></td>
       <td><%= link_to "Destroy", referral, :confirm => 'Are you sure?', :method => :delete %></td>

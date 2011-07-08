@@ -40,6 +40,14 @@
 </p>
 
 <p>
+  <strong>Created:</strong>
+  <%= @referral.created_at %> by <%= @referral.creator.username %>
+</p>
+<p>
+  <strong>Updated:</strong>
+  <%= @referral.updated_at %> by <%= @referral.updater.username %>
+</p>
+<p>
   <%= link_to "Edit", edit_referral_path(@referral) %> |
   <%= link_to "Destroy", @referral, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", referrals_path %>
