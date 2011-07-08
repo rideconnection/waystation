@@ -8,6 +8,13 @@ class Referral < ActiveRecord::Base
       :path => ":rails_root/uploads/:class/:id/:basename.:extension",
       :url => "/referrals/:id/download"
 
+  validates_presence_of :first_name
+  validates_presence_of :last_name
+  validates_presence_of :customer_phone
+  validates_presence_of :case_manager_name
+  validates_presence_of :case_manager_email
+  validates_attachment_presence :ucr_form
+  
   def name
     "#{last_name}, #{first_name}"
   end
