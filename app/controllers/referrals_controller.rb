@@ -3,6 +3,7 @@ class ReferralsController < ApplicationController
   before_filter :login_required
 
   def index
+    @referrals = @referrals.order('created_at DESC')
   end
 
   def show
