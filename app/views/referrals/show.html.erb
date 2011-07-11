@@ -22,7 +22,7 @@
 </p>
 <p>
   <strong>Note:</strong>
-  <%= @referral.note %>
+  <%= simple_format @referral.note %>
 </p>
 <% if current_user.admin? %>
   <p>
