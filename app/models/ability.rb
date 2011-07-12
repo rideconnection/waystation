@@ -15,7 +15,7 @@ class Ability
     if user.nil?
 
     elsif !user.admin?
-      can [:read, :update], User, :user_id => user.id
+      can [:read, :update], User, :id => user.id
     end
     # Define abilities for the passed in user here. For example:
     #

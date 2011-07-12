@@ -53,7 +53,11 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(params[:user])
-      redirect_to users_path, :notice => "New user successfully updated."
+      if current_user.admin?
+        redirect_to users_path, :notice => "User successfully updated."
+      else
+        redirect_to root_path, :notice => "Profile successfully updated."
+      end
     else
       render :action => 'edit'
     end
