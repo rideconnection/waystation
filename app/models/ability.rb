@@ -11,6 +11,12 @@ class Ability
     elsif user.user_type == 'Outside User'
       can :manage, Referral, :created_by => user.id, :active => true
     end
+
+    if user.nil?
+
+    elsif !user.admin?
+      can :update, User, :user_id => user.id
+    end
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to users_path, :notice => "New user successfully created."
+      redirect_to users_path, :notice => "New user successfully updated."
     else
       render :action => 'edit'
     end
