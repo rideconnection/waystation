@@ -43,10 +43,13 @@
   <strong>Created:</strong>
   <%= @referral.created_at %> by <%= @referral.creator.username %>
 </p>
-<p>
-  <strong>Updated:</strong>
-  <%= @referral.updated_at %> by <%= @referral.updater.username %>
-</p>
+<% if @referral.updated_at != @referral.created_at %>
+  <p>
+    <strong>Updated:</strong>
+    <%= @referral.updated_at %> by <%= @referral.updater.username %>
+  </p>
+<% end %>
+
 <p>
   <%= link_to "Edit", edit_referral_path(@referral) %> |
   <%= link_to "Destroy", @referral, :confirm => 'Are you sure?', :method => :delete %> |
