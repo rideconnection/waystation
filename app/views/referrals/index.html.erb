@@ -20,7 +20,7 @@
       <% if current_user.admin? %>
         <td><%= referral.active ? 'Yes' : 'No' %></td>
       <% end %>
-      <td><%= link_to("UCR Form", referral.ucr_form.url) if referral.ucr_form.present? %></td>
+      <td><%= link_to("UCR Form", image_path(referral.ucr_form.url)) if referral.ucr_form.present? %></td>
       <td><%= link_to "Show", referral %></td>
       <td><%= link_to "Edit", edit_referral_path(referral) %></td>
       <td><%= link_to "Destroy", referral, :confirm => 'Are you sure?', :method => :delete %></td>
