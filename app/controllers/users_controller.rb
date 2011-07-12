@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :login_required, :except => [:new_initial, :create_initial]
 
   def index
-    @users = @user.order(:username).all
+    @users = @users.order(:username).all
   end
 
   def new_initial
