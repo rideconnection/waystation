@@ -2,7 +2,9 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user.admin?
+    if user.nil?
+     
+    elsif user.admin?
       can :manage, :all
     elsif user.user_type == 'Ride Connection User'
       can [:read, :download], Referral, :active => true
