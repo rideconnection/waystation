@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
   before_filter :login_required, :except => [:new_initial, :create_initial]
 
   def index
-    @users = User.order(:username).all
+    @users = @user.order(:username).all
   end
 
   def new_initial
@@ -37,11 +38,9 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
   end
 
   def create
-    @user = User.new(params[:user])
     if @user.save
       redirect_to users_path, :notice => "New user successfully created."
     else
@@ -50,11 +49,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       redirect_to users_path, :notice => "New user successfully updated."
     else
