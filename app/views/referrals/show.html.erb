@@ -33,7 +33,7 @@
 
 <p>
   <% if @referral.ucr_form.present? %>
-    <%= link_to "UCR Form", @referral.ucr_form.url %>
+    <%= link_to "UCR Form", image_path(@referral.ucr_form.url) %>
   <% else %>
     (No UCR form uploaded)
   <% end %>
