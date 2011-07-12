@@ -9,7 +9,7 @@
   </li>
 </ul>
 
-<% if current_user.admin? %>
+<% if !current_user.blank? && current_user.admin? %>
   <ul>
     <li>
       <%= link_to 'List users', users_path %>
