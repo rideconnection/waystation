@@ -22,6 +22,8 @@ Waystation::Application.routes.draw do
     end
   end
 
+  match "test_exception_notification" => "application#test_exception_notification"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
