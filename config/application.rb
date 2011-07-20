@@ -38,5 +38,11 @@ module Waystation
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    #Exception Notification
+    config.middleware.use ExceptionNotifier,
+        :email_prefix => '[Waystation] ',
+        :sender_address => 'apps@rideconnection.org',
+        :exception_recipients => ['kchambers@rideconnection.org']
   end
 end

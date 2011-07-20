@@ -8,6 +8,10 @@ gem 'will_paginate', '~> 3.0.beta'
 gem 'paperclip'
 gem 'simple_form'
 gem 'userstamp'
+gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'exception_notification',
+    :git => "git://github.com/rails/exception_notification.git",
+    :require => "exception_notifier"
 
 group :development do
   gem 'capistrano'
@@ -34,4 +38,3 @@ gem 'mocha', :group => :test
 # group :development, :test do
 #   gem 'webrat'
 # end
-gem "bcrypt-ruby", :require => "bcrypt"
