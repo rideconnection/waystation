@@ -12,6 +12,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'exception_notification',
     :git => "git://github.com/rails/exception_notification.git",
     :require => "exception_notifier"
+gem 'jquery-rails'
 
 group :development do
   gem 'capistrano'

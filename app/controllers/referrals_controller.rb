@@ -1,9 +1,39 @@
+class ReferralQuery
+  include ActiveModel::Conversion
+  extend ActiveModel::Naming
+
+  attr_reader :creator_type, :completed 
+
+  CREATOR_TYPE_OPTIONS = %w{all inside outside}
+  COMPLETED_OPTIONS = %w{all completed not_completed}
+
+  def initialize(params)
+    params ||= {}
+
+    @creator_type = params[:creator_type] || 'all'
+    @completed = params[:completed] || 'all'
+  end
+
+  def persisted?
+    false
+  end
+
+  def apply_conditions(referrals)
+    referrals = referrals.created_by_outside_user if creator_type == 'outside' 
+    referrals = referrals.created_by_inside_user if creator_type == 'inside'
+    referrals = referrals.completed if completed == 'completed'
+    referrals = referrals.not_completed if completed == 'not_completed'
+    referrals
+  end
+end
+
 class ReferralsController < ApplicationController
   load_and_authorize_resource
   before_filter :login_required
 
   def index
-    @referrals = @referrals.order('created_at DESC')
+    @query = ReferralQuery.new(params)
+    @referrals = @query.apply_conditions(@referrals).order('created_at DESC')
   end
 
   def show

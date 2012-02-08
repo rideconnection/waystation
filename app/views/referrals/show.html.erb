@@ -24,6 +24,10 @@
   <strong>Note:</strong>
   <%= simple_format @referral.note %>
 </p>
+<p>
+  <strong>Completed at:</strong>
+  <%= @referral.completed_at %>
+</p>
 <% if current_user.admin? %>
   <p>
     <strong>Active:</strong>

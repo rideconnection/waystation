@@ -6,9 +6,9 @@ class Ability
      
     elsif user.admin?
       can :manage, :all
-    elsif user.user_type == 'Ride Connection User'
-      can [:read, :download], Referral, :active => true
-    elsif user.user_type == 'Outside User'
+    elsif user.user_type == 'Coach'
+      can [:read, :download, :update], Referral, :active => true
+    elsif user.user_type == 'Outside User' || user.user_type == 'Service Center User'
       can :manage, Referral, :created_by => user.id, :active => true
     end
 

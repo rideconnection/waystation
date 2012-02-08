@@ -6,6 +6,7 @@
   <%= f.input :case_manager_name, :input_html => {:size => 35} %>
   <%= f.input :case_manager_email, :input_html => {:size => 35} %>
   <%= f.input :note %>
+  <%= f.input :completed if current_user.coach? %>
   <%= f.input :active if current_user.admin? %>
   <%= f.input :ucr_form %>
   <%= f.button :submit %>

@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   validates_presence_of     :user_type
 
   def self.user_types
-    ['Outside User','Ride Connection User','Admin']
+    ['Outside User','Service Center User','Admin','Coach']
   end
   validates_inclusion_of    :user_type, :in => self.user_types
   
@@ -36,6 +36,19 @@ class User < ActiveRecord::Base
   def admin?
     user_type == 'Admin'
   end
+
+  def inside_user?
+    ['Service Center User','Admin','Coach'].include? user_type
+  end
+
+  def outside_user?
+    user_type == 'Outside User'
+  end
+
+  def coach?
+    ['Admin','Coach'].include? user_type
+  end
+
 
   private
 

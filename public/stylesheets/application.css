@@ -94,3 +94,22 @@ tr:nth-child(odd) {
 tr:nth-child(even) { 
   background-color:#fff; 
 }
+
+form.search input:checked + label {
+  background:moccasin;
+  border-radius: 5px;
+}
+
+form.search label {
+  padding: 2px 3px;
+}
+
+form.search div.title {
+  float:left;
+  width: 200px;
+  font-weight: bold;
+}
+
+form.search .button {
+  margin: 5px 0 0 205px;
+}
