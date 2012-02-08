@@ -7,11 +7,13 @@ class ReferralQuery
   CREATOR_TYPE_OPTIONS = %w{all inside outside}
   COMPLETED_OPTIONS = %w{all completed not_completed}
 
-  def initialize(params)
+  def initialize(params,session)
     params ||= {}
 
-    @creator_type = params[:creator_type] || 'all'
-    @completed = params[:completed] || 'all'
+    @creator_type = params[:creator_type] || session[:creator_type] || 'all'
+    @completed = params[:completed] || session[:completed] || 'all'
+    session[:creator_type] = @creator_type
+    session[:completed] = @completed
   end
 
   def persisted?
@@ -32,7 +34,7 @@ class ReferralsController < ApplicationController
   before_filter :login_required
 
   def index
-    @query = ReferralQuery.new(params)
+    @query = ReferralQuery.new(params,session)
     @referrals = @query.apply_conditions(@referrals).order('created_at DESC')
   end
 

@@ -25,6 +25,7 @@
 <table>
   <tr>
     <th>Submitted</th>
+    <th>Submitter</th>
     <th>Customer</th>
     <th>Case Manager</th>
     <th>Note</th>
@@ -37,6 +38,7 @@
   <% for referral in @referrals %>
     <tr>
       <td><%= referral.created_at %></td>
+      <td><%= referral.creator.username %></td>
       <td><%= referral.name %></td>
       <td><%= mail_to referral.case_manager_email, referral.case_manager_name %></td>
       <td><%= truncate referral.note %></td>
