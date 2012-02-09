@@ -25,7 +25,9 @@
 <table>
   <tr>
     <th>Submitted</th>
-    <th>Submitter</th>
+    <% if current_user.coach? %>
+      <th>Submitter</th>
+    <% end %>
     <th>Customer</th>
     <th>Case Manager</th>
     <th>Note</th>
@@ -38,7 +40,9 @@
   <% for referral in @referrals %>
     <tr>
       <td><%= referral.created_at %></td>
-      <td><%= referral.creator.try :username %></td>
+      <% if current_user.coach? %>
+        <td><%= referral.creator.try :username %></td>
+      <% end %>
       <td><%= referral.name %></td>
       <td><%= mail_to referral.case_manager_email, referral.case_manager_name %></td>
       <td><%= truncate referral.note %></td>
