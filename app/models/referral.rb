@@ -14,8 +14,8 @@ class Referral < ActiveRecord::Base
   validates_presence_of :first_name
   validates_presence_of :last_name
   validates_presence_of :customer_phone
-  validates_presence_of :case_manager_name, :if => User.find(User.stamper).outside_user?
-  validates_presence_of :case_manager_email, :if => User.find(User.stamper).outside_user?
+  validates_presence_of :case_manager_name
+  validates_presence_of :case_manager_email
   #validates_attachment_presence :ucr_form
 
   scope :created_by_outside_user, joins(:creator).where(:users => {:user_type => 'Outside User'})
