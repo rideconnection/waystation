@@ -34,7 +34,7 @@ class ReferralsController < ApplicationController
   before_filter :login_required
 
   def index
-    @query = ReferralQuery.new(params,session)
+    @query = ReferralQuery.new(params[:query],session)
     @referrals = @query.apply_conditions(@referrals).order('created_at DESC')
   end
 

@@ -4,20 +4,20 @@
   <form id="search-form" class="search">
     <fieldset>
       <div class="title">Referrals created by:</div>
-      <input type="radio" name="creator_type" value="inside" id="inside" <%= @query.creator_type == 'inside' ? 'checked = "checked"' : '' %>/>
-      <label for="inside">Ride Connection users</label>
-      <input type="radio" name="creator_type" value="outside" id="outside" <%= @query.creator_type == 'outside' ? 'checked = "checked"' : '' %>/>
-      <label for="outside">Outside users</label>
-      <input type="radio" name="creator_type" value="all" id="all_creators" <%= @query.creator_type == 'all' ? 'checked = "checked"' : '' %>/>
-      <label for="all_creators">All</label>
+      <%= radio_button :query, :creator_type, :inside %>
+      <%= label :query, :creator_type, "Ride Connection users", :value => :inside %>
+      <%= radio_button :query, :creator_type, :outside %>
+      <%= label :query, :creator_type, "Outside users", :value => :outside %>
+      <%= radio_button :query, :creator_type, :all %>
+      <%= label :query, :creator_type, "All", :value => :all %>
       <br>
       <div class="title">Completion:</div>
-      <input type="radio" name="completed" value="completed" id="completed" <%= @query.completed == 'completed' ? 'checked = "checked"' : '' %>/>
-      <label for="completed">Completed</label>
-      <input type="radio" name="completed" value="not_completed" id="not_completed" <%= @query.completed == 'not_completed' ? 'checked = "checked"' : '' %>/>
-      <label for="not_completed">Not completed</label>
-      <input type="radio" name="completed" value="all" id="all_complete_states" <%= @query.completed == 'all' ? 'checked = "checked"' : '' %>/>
-      <label for="all_complete_states">All</label>
+      <%= radio_button :query, :completed, :completed %>
+      <%= label :query, :completed, "Completed", :value => :completed %>
+      <%= radio_button :query, :completed, :not_completed %>
+      <%= label :query, :completed, "Not Completed", :value => :not_completed %>
+      <%= radio_button :query, :completed, :all %>
+      <%= label :query, :completed, "All", :value => :all %>
     </fieldset>
   </form>
 <% end %>
