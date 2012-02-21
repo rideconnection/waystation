@@ -1,15 +1,17 @@
 <% title "Referrals" %>
 
-<% if current_user.coach? %>
+<% if current_user.inside_user? %>
   <form id="search-form" class="search">
     <fieldset>
       <div class="title">Referrals created by:</div>
+      <%= radio_button :query, :creator_type, :user %>
+      <%= label :query, :creator_type, "Me", :value => :user %>
       <%= radio_button :query, :creator_type, :inside %>
       <%= label :query, :creator_type, "Ride Connection users", :value => :inside %>
       <%= radio_button :query, :creator_type, :outside %>
       <%= label :query, :creator_type, "Outside users", :value => :outside %>
       <%= radio_button :query, :creator_type, :all %>
-      <%= label :query, :creator_type, "All", :value => :all %>
+      <%= label :query, :creator_type, "Anyone", :value => :all %>
       <br>
       <div class="title">Completion:</div>
       <%= radio_button :query, :completed, :completed %>

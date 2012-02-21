@@ -20,6 +20,7 @@ class Referral < ActiveRecord::Base
 
   scope :created_by_outside_user, joins(:creator).where(:users => {:user_type => 'Outside User'})
   scope :created_by_inside_user, joins(:creator).where(:users => {:user_type => ['Service Center User','Admin','Coach']})
+  scope :created_by, lambda {|user| where(:created_by => user.id)}
   scope :not_completed, where(:completed_at => nil)
   scope :completed, where("referrals.completed_at IS NOT NULL")
   

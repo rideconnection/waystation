@@ -7,11 +7,12 @@ class ReferralQuery
   CREATOR_TYPE_OPTIONS = %w{all inside outside}
   COMPLETED_OPTIONS = %w{all completed not_completed}
 
-  def initialize(params,session)
+  def initialize(params,session,user)
     params ||= {}
 
     @creator_type = params[:creator_type] || session[:creator_type] || 'all'
     @completed = params[:completed] || session[:completed] || 'all'
+    @current_user = user
     session[:creator_type] = @creator_type
     session[:completed] = @completed
   end
@@ -21,6 +22,7 @@ class ReferralQuery
   end
 
   def apply_conditions(referrals)
+    referrals = referrals.created_by(@current_user) if creator_type == 'user'
     referrals = referrals.created_by_outside_user if creator_type == 'outside' 
     referrals = referrals.created_by_inside_user if creator_type == 'inside'
     referrals = referrals.completed if completed == 'completed'
@@ -34,7 +36,7 @@ class ReferralsController < ApplicationController
   before_filter :login_required
 
   def index
-    @query = ReferralQuery.new(params[:query],session)
+    @query = ReferralQuery.new(params[:query],session,current_user)
     @referrals = @query.apply_conditions(@referrals).order('created_at DESC')
   end
 
